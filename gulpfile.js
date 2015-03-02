@@ -83,15 +83,15 @@ gulp.task('js_css_injector:developer', function() {
                 tag = "<script src='<filename>'></script>";
             }
 
-            return tag.replace("<filename>",'../'+filepath+'?v='+VERSION).replace('../app/','../');
+            return tag.replace("<filename>",''+filepath+'?v='+VERSION).replace('app/','');
         }
     };
 
     var resources = SCRIPTS_SRC.concat(STYLES_SRC);
 
-    gulp.src('app/src/index.html')
+    gulp.src('app/index.html')
         .pipe(inject(gulp.src(resources,{read: false}),options))
-        .pipe(gulp.dest("app/src"));
+        .pipe(gulp.dest("app/"));
 });
 
 /* ------------------------------------- templates:developer --------------------------------------------*/
