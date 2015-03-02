@@ -1,0 +1,39 @@
+<div class="box none-border">
+
+    <div class="box">
+
+        <button class="btn btn-primary glyphicon glyphicon-plus btn-xs add-task-btn" ng-click="GtTaskCtrl.addTask(task)"></button>
+        <button class="btn btn-danger glyphicon glyphicon-minus btn-xs add-task-btn" ng-click="GtTaskCtrl.removeTask(task)"></button>
+
+        <span class="bold">שם משימה:</span>
+        <span>{{task.name}}</span>
+
+        <div>
+            <span class="bold">האם בוצע: </span>
+            <span class="glyphicon" ng-class="{'glyphicon-ok':task.isComplete,'glyphicon-remove':!task.isComplete}"></span>
+        </div>
+
+        <div>
+            <span class="bold">מזהה משימה: </span>
+            <span>{{task.id}}</span>
+        </div>
+
+
+
+
+        <div>
+            <span class="bold">תיאור משימה:</span>
+            <div>
+                {{task.description}}
+            </div>
+        </div>
+    </div>
+
+    <div class="box child none-border"
+         ng-repeat="task in task.tasks track by $index"
+         gt-task
+         task="task"
+         api="api">
+    </div>
+
+</div>

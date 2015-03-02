@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+body{padding: 20px; margin: 0; font-family: 'arial'; direction: rtl}
+.rtl{direction:rtl;}
+.ltr{direction:ltr;}
+.align-right{float: right;}
+.align-left{float: left;}
+th{text-align: right}
+
+h1.title{text-align: center}
+.box{padding: 5px; border:solid 1px #000000;  margin:5px 0;}
+.none-border{border:none; padding: 0; margin: 0;}
+.box.child{margin-right:15px; }
+.page-wrapper{width:100%; max-width: 800px;}
+/*
+.add-item-wrapper .datepicker{float:right}
+.add-item-wrapper .datepicker button{float:right}
+.add-item-wrapper .datepicker .form-control{float: right;}
+.add-item-wrapper .datepicker input{width:250px;}
+.add-item-wrapper .description{width:200px;}
+
+.summary.box{min-width: 400px;}
+
+.gt-sum-tables{max-width: 1200px;}
+*/
