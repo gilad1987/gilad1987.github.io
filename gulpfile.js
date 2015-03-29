@@ -124,7 +124,7 @@ gulp.task('watch:injector_js_css_to_html', function() {
 
 /* ------------------------------------- default --------------------------------------------*/
 
-gulp.task('default',[
+gulp.task('dev',[
     'templates:developer',
     'watch:injector_js_css_to_html',
     'watch:ng-templates']

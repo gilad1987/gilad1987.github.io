@@ -85,6 +85,7 @@
             if(typeof $scope.api == 'undefined'){
                 $scope.api = {};
             }
+
             $scope.api.addTask = this.addTask;
             $scope.api.removeTask = this.removeTask;
         }
