@@ -45,6 +45,8 @@ var STYLES_SRC = [
     'app/components/bootstrap/dist/css/bootstrap.css',
     'app/src/css/*.css',
     'app/src/css/**/*.css',
+    'app/src/scss/**/*.scss',
+    'app/src/scss/*.scss',
     'app/src/js/**/*.css'
 ];
 
@@ -83,15 +85,15 @@ gulp.task('js_css_injector:developer', function() {
                 tag = "<script src='<filename>'></script>";
             }
 
-            return tag.replace("<filename>",''+filepath+'?v='+VERSION).replace('app/','');
+            return tag.replace("<filename>",''+filepath+'?v='+VERSION);
         }
     };
 
     var resources = SCRIPTS_SRC.concat(STYLES_SRC);
 
-    gulp.src('app/index.html')
+    gulp.src('index.html')
         .pipe(inject(gulp.src(resources,{read: false}),options))
-        .pipe(gulp.dest("app/"));
+        .pipe(gulp.dest(""));
 });
 
 /* ------------------------------------- templates:developer --------------------------------------------*/
@@ -116,17 +118,37 @@ gulp.task('watch:ng-templates', function() {
 
 gulp.task('watch:injector_js_css_to_html', function() {
     gulp.watch([
-        'app/src/js/**/*.js','app/src/js/*.js',
-        'app/src/**.css','app/src/**/*.css'],
+            'app/src/js/**/*.js','app/src/js/*.js',
+            'app/src/**.css','app/src/**/*.css',
+            'app/src/**.scss','app/src/**/*.scss'],
+
         ['js_css_injector:developer']
     );
+});
+
+/* ------------------------------------- watch:scss --------------------------------------------*/
+
+gulp.task('watch:sass', function() {
+    gulp.watch(['app/src/**.scss','app/src/**/*.scss'],
+        ['sass']
+    );
+});
+
+/* ------------------------------------- scss --------------------------------------------*/
+var sass = require('gulp-sass');
+gulp.task('sass', function () {
+    gulp.src('app/src/scss/*.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('app/src/css'));
 });
 
 /* ------------------------------------- default --------------------------------------------*/
 
 gulp.task('dev',[
-    'templates:developer',
-    'watch:injector_js_css_to_html',
-    'watch:ng-templates']
+        'templates:developer',
+        'watch:injector_js_css_to_html',
+        'watch:ng-templates',
+        'watch:sass'
+    ]
 );
 
