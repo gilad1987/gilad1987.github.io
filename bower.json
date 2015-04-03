@@ -21,6 +21,8 @@
     "angular-bootstrap": "~0.12.1"
   },
   "dependencies": {
-    "angular-recursion": "~1.0.5"
+    "angular-recursion": "~1.0.5",
+    "foundation": "zurb/bower-foundation#~5.5.1",
+    "angular-foundation": "~0.5.1"
   }
 }

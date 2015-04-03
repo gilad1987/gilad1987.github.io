@@ -11,11 +11,12 @@
          */
         function Project(project)
         {
-            this.id = id ? id : null;
-            this.name = name ? name : null;
-            this.description = description ? description :null;
-            this.isComplete = isComplete ? isComplete :false;
-            this.parent = parent ? parent : null;
+            this.url = '#/project/'+(parseInt(projects.length)+1);
+            this.id = null;
+            this.name = null;
+            this.description = null;
+            this.isComplete = false;
+            this.parent = null;
             this.tasks = [];
 
             var key;
@@ -29,15 +30,10 @@
 
         /**
          *
-         * @param name
-         * @param description
-         * @param isComplete
-         * @param parent
-         * @param id
+         * @param project
          * @returns {ProjectsService.Project}
          */
         function getNew(project){
-
             return new Project(project);
         }
 

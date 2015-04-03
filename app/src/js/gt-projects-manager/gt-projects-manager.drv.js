@@ -29,6 +29,8 @@
 
         function GtProjectManagerController($scope, $element){
 
+            this.projects = $scope.projects;
+
             this.addProject = function(){
                 openModelToAddProject();
             };
@@ -49,7 +51,7 @@
             function openModelToAddProject(){
 
                 modal.open({
-                    templateUrl: 'app/src/js/gt-tasks-manager/gt-task/add-task.tpl.html',
+                    templateUrl: 'app/src/js/gt-projects-manager/add-project.tpl.html',
                     controller: ['$scope','$modalInstance','addFn',ProjectModalController],
                     controllerAs: 'ProjectModalController',
                     resolve: {
@@ -70,7 +72,7 @@
                 var newProject;
 
                 newProject = ProjectsService.getNew(project);
-                ProjectsService.add(newProject,callbacks);
+                ProjectsService.add(newProject);
 
             }
 

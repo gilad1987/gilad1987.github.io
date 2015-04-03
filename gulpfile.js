@@ -43,6 +43,7 @@ var SCRIPTS_SRC = [
 
 var STYLES_SRC = [
     'app/components/bootstrap/dist/css/bootstrap.css',
+    'app/components/foundation/css/foundation.css',
     'app/src/css/*.css',
     'app/src/css/**/*.css',
     'app/src/scss/**/*.scss',
