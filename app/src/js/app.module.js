@@ -1,7 +1,7 @@
 (function () {
 
-    angular.module('TasksManager',[
-        'GtTasksManager'
+    angular.module('ProjectsManager',[
+        'GtProjectsManager'
     ]);
 
 })();

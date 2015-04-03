@@ -5,6 +5,6 @@
 
     }
 
-    angular.module('ProjectsManager').config([Config]);
+    angular.module('GtProjectsManager').config([Config]);
 
 })();

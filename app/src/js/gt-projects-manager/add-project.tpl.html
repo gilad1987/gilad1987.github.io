@@ -1,0 +1,32 @@
+<div class="add-task-modal-wrapper ltr">
+
+    <h2>Add New Task</h2>
+
+    <form name="projectForm">
+        <div class="input-wrapper">
+            <label class="label-text-input">Name:</label>
+            <input name="name" value="" ng-model="name" class="input">
+
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="input-wrapper">
+            <label class="label-text-input">Description:</label>
+            <textarea name="description" value="" ng-model="description" class="input"></textarea>
+
+            <div class="clearfix"></div>
+        </div>
+
+
+        <div class="input-wrapper">
+            <label>Is done? : </label>
+            <label>Yes</label> <input type="radio" name="done" ng-model="done" value="1" />
+            <label>No</label> <input type="radio" name="done" ng-model="done" value="0" />
+        </div>
+
+        <br/>
+
+        <button value="" class="btn btn-success" ng-click="ProjectModalController.add(projectForm)">send</button>
+    </form>
+
+</div>

@@ -66,17 +66,6 @@ h1.title {
       line-height: 20px;
       margin: 13px;
       padding: 8px; }
-    .main-container .project-list input.filter {
-      background: #444444;
-      color: #939393;
-      line-height: 20px;
-      border: none;
-      width: 85%;
-      padding: 6px 1%;
-      margin: 0 auto;
-      display: block;
-      text-indent: 10px;
-      outline: none; }
   .main-container .tasks-manage {
     width: 80%;
     height: 100%;
