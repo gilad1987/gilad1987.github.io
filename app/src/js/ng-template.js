@@ -6,7 +6,7 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("app/src/js/gt-projects-manager/add-project.tpl.html",
     "<div class=\"add-task-modal-wrapper ltr\">\n" +
     "\n" +
-    "    <h2>Add New Task</h2>\n" +
+    "    <h2>Add New Project</h2>\n" +
     "\n" +
     "    <form name=\"projectForm\">\n" +
     "        <div class=\"input-wrapper\">\n" +
@@ -32,7 +32,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "        <br/>\n" +
     "\n" +
-    "        <button value=\"\" class=\"btn btn-success\" ng-click=\"ProjectModalController.add(projectForm)\">send</button>\n" +
+    "        <button value=\"\" class=\"\" ng-click=\"ProjectModalController.add(projectForm)\">send</button>\n" +
     "    </form>\n" +
     "\n" +
     "</div>");
@@ -51,7 +51,7 @@ module.run(["$templateCache", function($templateCache) {
     "        <header class=\"title\">Project manager</header>\n" +
     "\n" +
     "        <div ng-controller=\"cController as cCtrl\">\n" +
-    "            <input type=\"text\" class=\"filter\" placeholder=\"Search a project ...\" ng-model=\"cCtrl.projectFilter.string\">\n" +
+    "            <input type=\"text\" class=\"filter\" placeholder=\"Search project ...\" ng-model=\"cCtrl.projectFilter.string\">\n" +
     "\n" +
     "            <ul>\n" +
     "                <li ng-click=\"GtProjectManagerCtrl.addProject()\"><i class=\"glyphicon glyphicon-plus\"></i> Add project</li>\n" +

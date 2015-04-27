@@ -23,6 +23,7 @@
   "dependencies": {
     "angular-recursion": "~1.0.5",
     "foundation": "zurb/bower-foundation#~5.5.1",
-    "angular-foundation": "~0.5.1"
+    "angular-foundation": "~0.5.1",
+    "font-awesome": "FortAwesome/Font-Awesome#~4.3.0"
   }
 }

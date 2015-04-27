@@ -72,6 +72,7 @@
                 var newProject;
 
                 newProject = ProjectsService.getNew(project);
+
                 ProjectsService.add(newProject);
 
             }
