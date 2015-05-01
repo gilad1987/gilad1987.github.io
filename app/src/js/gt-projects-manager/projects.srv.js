@@ -2,7 +2,9 @@
 
     function ProjectsService()
     {
-        var projects = [];
+        var projects = [],
+            $cookies,
+            localStorageService;
 
         /**
          *
@@ -44,6 +46,7 @@
          */
         function add(project){
             projects.push(project);
+            updateStorage();
             return project;
         }
 
@@ -61,10 +64,13 @@
                 projects.splice(projectIndex, 1);
             }
 
+            updateStorage();
+
             return true;
         }
 
         function get(project_key){
+
             var result;
 
             result = projects;
@@ -75,16 +81,29 @@
             }
 
             return result;
+
         }
 
-        this.$get = function(){
+        function updateStorage(){
+            localStorageService.set('projects',projects);
+        }
+
+        function $get(_localStorageService){
+
+            localStorageService = _localStorageService;
+
+            projects = localStorageService.get('projects') || [];
+
             return {
                 get:get,
                 getNew:getNew,
                 add:add,
-                remove:remove
+                remove:remove,
+                updateStorage:updateStorage
             };
         }
+
+        this.$get = ['localStorageService','$cookies',$get];
     }
 
     angular.module('GtProjectsManager').provider('ProjectsService',[ProjectsService]);

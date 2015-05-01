@@ -6,33 +6,31 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("app/src/js/gt-projects-manager/add-project.tpl.html",
     "<div class=\"add-task-modal-wrapper ltr\">\n" +
     "\n" +
-    "    <h2>Add New Project</h2>\n" +
+    "    <h2 class=\"title\">New project</h2>\n" +
     "\n" +
     "    <form name=\"projectForm\">\n" +
     "        <div class=\"input-wrapper\">\n" +
-    "            <label class=\"label-text-input\">Name:</label>\n" +
-    "            <input name=\"name\" value=\"\" ng-model=\"name\" class=\"input\">\n" +
+    "            <input type=\"text\" name=\"name\" value=\"\" ng-model=\"name\" class=\"input\" placeholder=\"Name\">\n" +
     "\n" +
     "            <div class=\"clearfix\"></div>\n" +
     "        </div>\n" +
     "\n" +
     "        <div class=\"input-wrapper\">\n" +
-    "            <label class=\"label-text-input\">Description:</label>\n" +
-    "            <textarea name=\"description\" value=\"\" ng-model=\"description\" class=\"input\"></textarea>\n" +
+    "            <textarea name=\"description\" value=\"\" ng-model=\"description\" class=\"input\" placeholder=\"Description\"></textarea>\n" +
     "\n" +
     "            <div class=\"clearfix\"></div>\n" +
     "        </div>\n" +
     "\n" +
     "\n" +
-    "        <div class=\"input-wrapper\">\n" +
+    "        <div class=\"input-wrapper\" style=\"display: none\">\n" +
     "            <label>Is done? : </label>\n" +
     "            <label>Yes</label> <input type=\"radio\" name=\"done\" ng-model=\"done\" value=\"1\" />\n" +
     "            <label>No</label> <input type=\"radio\" name=\"done\" ng-model=\"done\" value=\"0\" />\n" +
     "        </div>\n" +
     "\n" +
-    "        <br/>\n" +
-    "\n" +
-    "        <button value=\"\" class=\"\" ng-click=\"ProjectModalController.add(projectForm)\">send</button>\n" +
+    "        <!--<br/>-->\n" +
+    "        <button value=\"\" class=\"button secondary tiny\" ng-click=\"\">cancel</button>\n" +
+    "        <button value=\"\" class=\"tiny save\" ng-click=\"ProjectModalController.add(projectForm)\">save</button>\n" +
     "    </form>\n" +
     "\n" +
     "</div>");
@@ -56,6 +54,21 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "\n" +
     "    <div class=\"clear\"></div>\n" +
+    "</div>");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("ProjectsManager"); }
+catch(err) { module = angular.module("ProjectsManager", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("app/src/js/gt-projects-manager/gt-tasks-manager/gt-tasks-manager.tpl.html",
+    "<div\n" +
+    "    ng-repeat=\"task in tasks track by $index\"\n" +
+    "    gt-task\n" +
+    "    task=\"task\"\n" +
+    "    api=\"api\">\n" +
     "</div>");
 }]);
 })();
@@ -111,37 +124,20 @@ try { module = angular.module("ProjectsManager"); }
 catch(err) { module = angular.module("ProjectsManager", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("app/src/js/gt-projects-manager/gt-tasks-manager/gt-tasks-manager.tpl.html",
-    "<div\n" +
-    "    ng-repeat=\"task in tasks track by $index\"\n" +
-    "    gt-task\n" +
-    "    task=\"task\"\n" +
-    "    api=\"api\">\n" +
-    "</div>");
-}]);
-})();
-
-(function(module) {
-try { module = angular.module("ProjectsManager"); }
-catch(err) { module = angular.module("ProjectsManager", []); }
-module.run(["$templateCache", function($templateCache) {
-  "use strict";
   $templateCache.put("app/src/js/gt-projects-manager/gt-tasks-manager/gt-task/add-task.tpl.html",
     "<div class=\"add-task-modal-wrapper ltr\">\n" +
     "\n" +
-    "    <h2>Add New Task</h2>\n" +
+    "    <h2 class=\"title\">New task</h2>\n" +
     "\n" +
     "    <form name=\"taskForm\">\n" +
     "        <div class=\"input-wrapper\">\n" +
-    "            <label class=\"label-text-input\">Name:</label>\n" +
-    "            <input name=\"name\" value=\"\" ng-model=\"name\" class=\"input\">\n" +
+    "            <input type=\"text\" name=\"name\" value=\"\" ng-model=\"name\" class=\"input\" placeholder=\"Name\">\n" +
     "\n" +
     "            <div class=\"clearfix\"></div>\n" +
     "        </div>\n" +
     "\n" +
     "        <div class=\"input-wrapper\">\n" +
-    "            <label class=\"label-text-input\">Description:</label>\n" +
-    "            <textarea name=\"description\" value=\"\" ng-model=\"description\" class=\"input\"></textarea>\n" +
+    "            <textarea name=\"description\" value=\"\" ng-model=\"description\" class=\"input\" placeholder=\"Description\"></textarea>\n" +
     "\n" +
     "            <div class=\"clearfix\"></div>\n" +
     "        </div>\n" +
@@ -155,7 +151,8 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "        <br/>\n" +
     "\n" +
-    "        <button value=\"\" class=\"btn btn-success\" ng-click=\"TaskModalController.add(taskForm)\">send</button>\n" +
+    "        <button value=\"\" class=\"button secondary tiny\" ng-click=\"\">cancel</button>\n" +
+    "        <button value=\"\" class=\"tiny save\" ng-click=\"TaskModalController.add(taskForm)\">save</button>\n" +
     "    </form>\n" +
     "\n" +
     "</div>");

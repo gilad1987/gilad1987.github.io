@@ -3,11 +3,15 @@
 .bold{font-weight: bold}
 
 .add-task-btn{float:left; margin: 0 2px;}
-.add-task-modal-wrapper{padding: 10px;}
+.add-task-modal-wrapper{/* padding: 10px; */}
 .add-task-modal-wrapper label.label-text-input{width: 85px; display: inline-block; float: left ;}
 .add-task-modal-wrapper .input-wrapper{margin: 10px 0}
-.add-task-modal-wrapper .input-wrapper .input{width:100%; resize: none; border: solid 1px lightgray}
+.add-task-modal-wrapper .input-wrapper .input{width:100%; resize: none; border: solid 1px lightgray;}
 .add-task-modal-wrapper .input-wrapper textarea.input{height: 100px;}
 .add-task-modal-wrapper .input-wrapper label{font-weight: normal}
+
+h2.title{border-bottom: 1px solid #DDD9D9;font-size: 23px;text-indent: 13px;padding: 10px;color: gray;/* font-weight: normal; */}
+form{padding:10px;}
+button.save{float:right}
 
 .box .btn{float:right}

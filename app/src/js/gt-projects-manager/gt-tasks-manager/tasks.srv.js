@@ -3,7 +3,7 @@
     function TasksService()
     {
         var tasks = [],
-            counter = 0;
+            ProjectsService;
 
         /**
          *
@@ -51,6 +51,8 @@
                 project.tasks.push(newTask);
             }
 
+            ProjectsService.updateStorage();
+
             return newTask;
         }
 
@@ -74,10 +76,15 @@
                 removeFromCollection.splice(taskIndex, 1);
             }
 
+            ProjectsService.updateStorage();
+
             return true;
         }
 
-        this.$get = function(){
+        function $get(_ProjectsService){
+
+            ProjectsService = _ProjectsService;
+
             return {
                 get:function(){
                     return tasks;
@@ -87,6 +94,8 @@
                 remove:remove
             };
         }
+
+        this.$get = ['ProjectsService',$get];
     }
 
     angular.module('GtTasksManager').provider('TasksService',[TasksService]);

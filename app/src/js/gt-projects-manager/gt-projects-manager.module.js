@@ -2,7 +2,9 @@
 
     angular.module('GtProjectsManager',[
         //'mm.foundation',
-        'GtTasksManager'
+        'GtTasksManager',
+        'LocalStorageModule',
+        'ngCookies'
     ]);
 
 })();
