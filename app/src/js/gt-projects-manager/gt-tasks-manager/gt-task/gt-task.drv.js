@@ -16,7 +16,7 @@
         }
 
         return  {
-            templateUrl: 'app/src/js/gt-tasks-manager/gt-task/gt-task.tpl.html',
+            templateUrl: 'app/src/js/gt-projects-manager/gt-tasks-manager/gt-task/gt-task.tpl.html',
             scope: {
                 task: '=task',
                 api:'=api'

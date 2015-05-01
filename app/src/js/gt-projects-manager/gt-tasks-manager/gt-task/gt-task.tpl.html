@@ -5,16 +5,16 @@
         <button class="btn btn-primary glyphicon glyphicon-plus btn-xs add-task-btn" ng-click="GtTaskCtrl.addTask(task)"></button>
         <button class="btn btn-danger glyphicon glyphicon-minus btn-xs add-task-btn" ng-click="GtTaskCtrl.removeTask(task)"></button>
 
-        <span class="bold">שם משימה:</span>
+        <span class="bold">Name:</span>
         <span>{{task.name}}</span>
 
         <div>
-            <span class="bold">האם בוצע: </span>
+            <span class="bold">Is done? </span>
             <span class="glyphicon" ng-class="{'glyphicon-ok':task.isComplete,'glyphicon-remove':!task.isComplete}"></span>
         </div>
 
         <div>
-            <span class="bold">מזהה משימה: </span>
+            <span class="bold">ID</span>
             <span>{{task.id}}</span>
         </div>
 
@@ -22,7 +22,7 @@
 
 
         <div>
-            <span class="bold">תיאור משימה:</span>
+            <span class="bold">Description</span>
             <div>
                 {{task.description}}
             </div>

@@ -64,11 +64,22 @@
             return true;
         }
 
+        function get(project_key){
+            var result;
+
+            result = projects;
+
+            if(typeof project_key != 'undefined'){
+                --project_key;
+                result = projects[project_key];
+            }
+
+            return result;
+        }
+
         this.$get = function(){
             return {
-                get:function(){
-                    return projects;
-                },
+                get:get,
                 getNew:getNew,
                 add:add,
                 remove:remove

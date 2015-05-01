@@ -9,3 +9,5 @@
 .add-task-modal-wrapper .input-wrapper .input{width:100%; resize: none; border: solid 1px lightgray}
 .add-task-modal-wrapper .input-wrapper textarea.input{height: 100px;}
 .add-task-modal-wrapper .input-wrapper label{font-weight: normal}
+
+.box .btn{float:right}

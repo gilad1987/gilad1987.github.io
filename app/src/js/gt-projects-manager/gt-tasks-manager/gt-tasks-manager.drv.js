@@ -30,8 +30,8 @@
 
         function GtTaskManagerController($scope, $element){
 
-            this.addTask = function(parentTask){
-                openModelToAddTask(parentTask);
+            this.addTask = function(project){
+                openModelToAddTask(project);
             };
 
             /**
@@ -45,17 +45,17 @@
 
             /**
              *
-             * @param parentTask
+             * @param project
              */
-            function openModelToAddTask(parentTask){
+            function openModelToAddTask(project){
 
                 modal.open({
-                    templateUrl: 'app/src/js/gt-tasks-manager/gt-task/add-task.tpl.html',
-                    controller: ['$scope','$modalInstance','parentTask','addToService',TaskModalController],
+                    templateUrl: 'app/src/js/gt-projects-manager/gt-tasks-manager/gt-task/add-task.tpl.html',
+                    controller: ['$scope','$modalInstance','project','addToService',TaskModalController],
                     controllerAs: 'TaskModalController',
                     resolve: {
-                        parentTask : function(){
-                            return parentTask;
+                        project : function(){
+                            return project;
                         },
                         addToService:function(){
                             return add;
@@ -69,15 +69,15 @@
 
             /**
              *
-             * @param parentTask
+             * @param project
              * @param data
              * @param callbacks
              */
-            function add(parentTask, data, callbacks){
+            function add(project, data, callbacks){
                 var newTask;
 
-                newTask = TasksService.getNew(data.name,data.description,data.isComplete,parentTask);
-                TasksService.add(parentTask,newTask,callbacks);
+                newTask = TasksService.getNew(data.name,data.description,data.isComplete,project);
+                TasksService.add(project,newTask,callbacks);
 
             }
 
@@ -93,7 +93,7 @@
 
 
         return  {
-            templateUrl: 'app/src/js/gt-tasks-manager/gt-tasks-manager.tpl.html',
+            templateUrl: 'app/src/js/gt-projects-manager/gt-tasks-manager/gt-tasks-manager.tpl.html',
             scope: {
                 tasks: '=tasks',
                 api: '=api'

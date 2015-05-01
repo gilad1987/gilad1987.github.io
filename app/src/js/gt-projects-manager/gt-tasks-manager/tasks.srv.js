@@ -39,16 +39,16 @@
 
         /**
          *
-         * @param parentToAdd
+         * @param project
          * @param newTask
          * @returns newTask
          */
-        function add(parentToAdd,newTask){
+        function add(project,newTask){
 
-            if(typeof parentToAdd === 'undefined'){
+            if(typeof project === 'undefined'){
                 tasks.push(newTask);
             }else{
-                parentToAdd.tasks.push(newTask);
+                project.tasks.push(newTask);
             }
 
             return newTask;

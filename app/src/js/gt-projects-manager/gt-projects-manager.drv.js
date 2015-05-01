@@ -31,13 +31,14 @@
 
             this.projects = $scope.projects;
 
+
             this.addProject = function(){
                 openModelToAddProject();
             };
 
             /**
              *
-             * @param task
+             * @param project
              * @param callbacks
              */
             this.removeProject = function(project, callbacks){
@@ -45,9 +46,6 @@
             };
 
 
-            /**
-             *
-             */
             function openModelToAddProject(){
 
                 modal.open({
