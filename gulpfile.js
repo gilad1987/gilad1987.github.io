@@ -1,7 +1,9 @@
 var gulp = require('gulp'),
     inject = require("gulp-inject"),
     html2js = require('gulp-html2js'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    minifyCss = require('gulp-minify-css');
 
 var SCRIPTS_SRC = [
     'app/components/jquery/dist/jquery.js',
@@ -68,6 +70,8 @@ var VERSION = (function(){
 
 })();
 
+is_production = true;
+
 /* ------------------------------------- include resource to html ---------------------------------------*/
 
 // must in html fro Scripts     <!-- inject:js --><!-- endinject -->
@@ -91,7 +95,14 @@ gulp.task('js_css_injector:developer', function() {
         }
     };
 
-    var resources = SCRIPTS_SRC.concat(STYLES_SRC);
+    var resources;
+
+    if(is_production){
+        resources = ['dist/style.min.css','dist/script.min.js'];
+    }else{
+        resources = SCRIPTS_SRC.concat(STYLES_SRC);
+    }
+
 
     gulp.src('index.html')
         .pipe(inject(gulp.src(resources,{read: false}),options))
@@ -144,8 +155,25 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('app/src/css'));
 });
 
-/* ------------------------------------- default --------------------------------------------*/
 
+/* ------------------------------------- concat_scripts --------------------------------------------*/
+gulp.task('concat_scripts', function() {
+    return gulp.src(SCRIPTS_SRC)
+        .pipe(concat('script.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/'));
+});
+
+/* ------------------------------------- concat_css --------------------------------------------*/
+gulp.task('concat_css', function() {
+    return gulp.src(STYLES_SRC)
+        .pipe(concat('style.min.css'))
+        //.pipe(minifyCss())
+        .pipe(gulp.dest('dist/'));
+});
+
+
+/* ------------------------------------- default --------------------------------------------*/
 gulp.task('dev',[
         'templates:developer',
         'watch:injector_js_css_to_html',
@@ -154,3 +182,14 @@ gulp.task('dev',[
     ]
 );
 
+
+/* ------------------------------------- build --------------------------------------------*/
+
+
+gulp.task('build',[
+        'templates:developer',
+        'concat_scripts',
+        'concat_css',
+        'js_css_injector:developer'
+    ]
+);

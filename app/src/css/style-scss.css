@@ -40,11 +40,14 @@ h1.title {
   margin: 0; }
 
 .box.child {
-  margin-right: 15px; }
+  margin-left: 15px; }
 
 .page-wrapper {
   width: 100%;
   max-width: 800px; }
+
+.tasks {
+  padding: 10px; }
 
 .main-wrapper {
   width: 100%;
