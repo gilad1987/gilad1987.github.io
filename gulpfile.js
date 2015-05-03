@@ -12,7 +12,7 @@ var SCRIPTS_SRC = [
     'app/components/angular-bootstrap/ui-bootstrap-tpls.js',
     'app/components/angular-recursion/angular-recursion.js',
     'app/components/angular-local-storage/dist/angular-local-storage.js',
-    'app/components/angular-cookies/angular-cookies.js',
+    'app/components/circular-json/build/circular-json.js',
     //'app/components/angular-foundation/mm-foundation-tpls.js',
 
     'app/app/src/js/**/*.services.module.js',

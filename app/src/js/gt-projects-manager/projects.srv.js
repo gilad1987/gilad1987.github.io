@@ -3,7 +3,7 @@
     function ProjectsService()
     {
         var projects = [],
-            $cookies,
+            projectsSerialized,
             localStorageService;
 
         /**
@@ -85,14 +85,21 @@
         }
 
         function updateStorage(){
-            localStorageService.set('projects',projects);
+            projectsSerialized = CircularJSON.stringify(projects);
+            localStorage.setItem('projects',projectsSerialized);
+        }
+
+        function gerFromStorage(){
+            projectsSerialized = localStorage.getItem('projects');
+            projects = CircularJSON.parse(projectsSerialized);
+            return projects;
         }
 
         function $get(_localStorageService){
 
             localStorageService = _localStorageService;
 
-            projects = localStorageService.get('projects') || [];
+            projects = gerFromStorage() || [];
 
             return {
                 get:get,
@@ -103,7 +110,7 @@
             };
         }
 
-        this.$get = ['localStorageService','$cookies',$get];
+        this.$get = ['localStorageService',$get];
     }
 
     angular.module('GtProjectsManager').provider('ProjectsService',[ProjectsService]);
