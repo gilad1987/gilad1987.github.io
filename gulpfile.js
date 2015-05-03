@@ -72,7 +72,7 @@ var VERSION = (function(){
 
 })();
 
-is_production = false;
+is_production = true;
 
 /* ------------------------------------- include resource to html ---------------------------------------*/
 
