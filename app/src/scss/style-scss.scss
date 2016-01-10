@@ -8,6 +8,7 @@ html{height: 100%; width: 100%;}
 .ltr{direction:ltr;}
 .align-right{float: right;}
 .align-left{float: left;}
+.clear{clear:both}
 th{text-align: right}
 
 /* task manager */
@@ -36,8 +37,10 @@ h1.title{text-align: center}
   .tasks-manage{
     width:80%; height:100%; background: #eeeeee; float:left;
 
-    .title{background: #464646; color:#ffffff;padding: 12px; font-size: 20px;}
+    header.title{background: #464646; color:#ffffff;padding: 12px; font-size: 20px;}
   }
+
+  .task-wrapper{float:right; width:98.5%;}
 
 }
 

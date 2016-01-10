@@ -72,7 +72,7 @@ var VERSION = (function(){
 
 })();
 
-is_production = true;
+is_production = false;
 
 /* ------------------------------------- include resource to html ---------------------------------------*/
 
@@ -189,6 +189,7 @@ gulp.task('dev',[
 
 
 gulp.task('build',[
+        'sass',
         'templates:developer',
         'concat_scripts',
         'concat_css',

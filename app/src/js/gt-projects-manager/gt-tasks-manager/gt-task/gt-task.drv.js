@@ -10,9 +10,13 @@
          * @param $element
          * @constructor
          */
-        function GtTaskController($scope, $element){
+        function GtTaskController($scope, $element, ProjectsService){
             this.removeTask = $scope.api.removeTask;
             this.addTask = $scope.api.addTask;
+
+            this.update = function(){
+                ProjectsService.updateStorage();
+            }
         }
 
         return  {
@@ -21,7 +25,7 @@
                 task: '=task',
                 api:'=api'
             },
-            controller: ['$scope','$element',GtTaskController],
+            controller: ['$scope','$element','ProjectsService',GtTaskController],
             controllerAs: 'GtTaskCtrl',
             compile: function(element) {
 

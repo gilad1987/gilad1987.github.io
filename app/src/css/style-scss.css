@@ -1,4 +1,3 @@
-
 body {
   height: 100%;
   width: 100%;
@@ -22,6 +21,9 @@ html {
 
 .align-left {
   float: left; }
+
+.clear {
+  clear: both; }
 
 th {
   text-align: right; }
@@ -102,8 +104,11 @@ h1.title {
     height: 100%;
     background: #eeeeee;
     float: left; }
-    .main-container .tasks-manage .title {
+    .main-container .tasks-manage header.title {
       background: #464646;
       color: #ffffff;
       padding: 12px;
       font-size: 20px; }
+  .main-container .task-wrapper {
+    float: right;
+    width: 98.5%; }

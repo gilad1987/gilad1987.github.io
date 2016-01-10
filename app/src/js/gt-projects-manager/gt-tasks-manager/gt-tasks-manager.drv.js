@@ -20,7 +20,7 @@
 
                 formData.name = form.name.$modelValue;
                 formData.description = form.description.$modelValue;
-                formData.isComplete = form.done.$modelValue;
+                //formData.isComplete = form.done.$modelValue;
                 addToService(parentTask, formData);
 
             }

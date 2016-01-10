@@ -63,21 +63,6 @@ try { module = angular.module("ProjectsManager"); }
 catch(err) { module = angular.module("ProjectsManager", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("app/src/js/gt-projects-manager/gt-tasks-manager/gt-tasks-manager.tpl.html",
-    "<div\n" +
-    "    ng-repeat=\"task in tasks track by $index\"\n" +
-    "    gt-task\n" +
-    "    task=\"task\"\n" +
-    "    api=\"api\">\n" +
-    "</div>");
-}]);
-})();
-
-(function(module) {
-try { module = angular.module("ProjectsManager"); }
-catch(err) { module = angular.module("ProjectsManager", []); }
-module.run(["$templateCache", function($templateCache) {
-  "use strict";
   $templateCache.put("app/src/js/gt-projects-manager/partials/projects.tpl.html",
     "<div class=\"\">\n" +
     "\n" +
@@ -111,10 +96,26 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("app/src/js/gt-projects-manager/partials/tasks.tpl.html",
     "<div ng-controller=\"TasksController as TasksCtrl\">\n" +
     "\n" +
+    "    <h1>{{TasksCtrl.project.name}}</h1>\n" +
     "    <button ng-click=\"TasksCtrl.api.addTask(TasksCtrl.project)\"><i class=\"glyphicon glyphicon-plus\"></i> Add new task</button>\n" +
     "\n" +
     "    <div gt-tasks-manager tasks=\"TasksCtrl.project.tasks\" api=\"TasksCtrl.api\"></div>\n" +
     "\n" +
+    "</div>");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("ProjectsManager"); }
+catch(err) { module = angular.module("ProjectsManager", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("app/src/js/gt-projects-manager/gt-tasks-manager/gt-tasks-manager.tpl.html",
+    "<div\n" +
+    "    ng-repeat=\"task in tasks track by $index\"\n" +
+    "    gt-task\n" +
+    "    task=\"task\"\n" +
+    "    api=\"api\">\n" +
     "</div>");
 }]);
 })();
@@ -143,11 +144,11 @@ module.run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "\n" +
     "\n" +
-    "        <div class=\"input-wrapper\">\n" +
-    "            <label>Is done? : </label>\n" +
-    "            <label>Yes</label> <input type=\"radio\" name=\"done\" ng-model=\"done\" value=\"1\" />\n" +
-    "            <label>No</label> <input type=\"radio\" name=\"done\" ng-model=\"done\" value=\"0\" />\n" +
-    "        </div>\n" +
+    "        <!--<div class=\"input-wrapper\">-->\n" +
+    "            <!--<label>Is done? : </label>-->\n" +
+    "            <!--<label>Yes</label> <input type=\"radio\" name=\"done\" ng-model=\"done\" value=\"1\" />-->\n" +
+    "            <!--<label>No</label> <input type=\"radio\" name=\"done\" ng-model=\"done\" value=\"0\" />-->\n" +
+    "        <!--</div>-->\n" +
     "\n" +
     "        <br/>\n" +
     "\n" +
@@ -167,34 +168,38 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("app/src/js/gt-projects-manager/gt-tasks-manager/gt-task/gt-task.tpl.html",
     "<div class=\"box none-border\">\n" +
     "\n" +
-    "    <div class=\"box\">\n" +
+    "    <input type=\"checkbox\" ng-model=\"task.isComplete\" name=\"isComplete\" ng-click=\"GtTaskCtrl.update()\">\n" +
+    "\n" +
+    "    <div class=\"box task-wrapper\">\n" +
     "\n" +
     "        <button class=\"btn btn-primary glyphicon glyphicon-plus btn-xs add-task-btn\" ng-click=\"GtTaskCtrl.addTask(task)\"></button>\n" +
     "        <button class=\"btn btn-danger glyphicon glyphicon-minus btn-xs add-task-btn\" ng-click=\"GtTaskCtrl.removeTask(task)\"></button>\n" +
     "\n" +
-    "        <span class=\"bold\">Name:</span>\n" +
+    "        <!--<div class=\"bold title\">Name:</div>-->\n" +
     "        <span>{{task.name}}</span>\n" +
     "\n" +
-    "        <div>\n" +
-    "            <span class=\"bold\">Is done? </span>\n" +
-    "            <span class=\"glyphicon\" ng-class=\"{'glyphicon-ok':task.isComplete,'glyphicon-remove':!task.isComplete}\"></span>\n" +
-    "        </div>\n" +
+    "        <!--<div>-->\n" +
+    "            <!--<span class=\"bold\">Is done? </span>-->\n" +
+    "            <!--<span class=\"glyphicon\" ng-class=\"{'glyphicon-ok':task.isComplete,'glyphicon-remove':!task.isComplete}\"></span>-->\n" +
+    "        <!--</div>-->\n" +
     "\n" +
-    "        <div>\n" +
-    "            <span class=\"bold\">ID</span>\n" +
-    "            <span>{{task.id}}</span>\n" +
-    "        </div>\n" +
-    "\n" +
-    "\n" +
+    "        <!--<div>-->\n" +
+    "            <!--<span class=\"bold\">ID</span>-->\n" +
+    "            <!--<span>{{task.id}}</span>-->\n" +
+    "        <!--</div>-->\n" +
     "\n" +
     "\n" +
-    "        <div>\n" +
-    "            <span class=\"bold\">Description</span>\n" +
-    "            <div>\n" +
-    "                {{task.description}}\n" +
-    "            </div>\n" +
-    "        </div>\n" +
+    "\n" +
+    "\n" +
+    "        <!--<div>-->\n" +
+    "            <!--<span class=\"bold title\">Description</span>-->\n" +
+    "            <!--<div>-->\n" +
+    "                <!--{{task.description}}-->\n" +
+    "            <!--</div>-->\n" +
+    "        <!--</div>-->\n" +
     "    </div>\n" +
+    "\n" +
+    "    <div class=\"clear\"></div>\n" +
     "\n" +
     "    <div class=\"box child none-border\"\n" +
     "         ng-repeat=\"task in task.tasks track by $index\"\n" +
@@ -202,6 +207,7 @@ module.run(["$templateCache", function($templateCache) {
     "         task=\"task\"\n" +
     "         api=\"api\">\n" +
     "    </div>\n" +
+    "\n" +
     "\n" +
     "</div>");
 }]);

@@ -10,6 +10,8 @@
 .add-task-modal-wrapper .input-wrapper textarea.input{height: 100px;}
 .add-task-modal-wrapper .input-wrapper label{font-weight: normal}
 
+.box .title{color: rgb(0, 140, 186)}
+
 h2.title{border-bottom: 1px solid #DDD9D9;font-size: 23px;text-indent: 13px;padding: 10px;color: gray;/* font-weight: normal; */}
 form{padding:10px;}
 button.save{float:right}

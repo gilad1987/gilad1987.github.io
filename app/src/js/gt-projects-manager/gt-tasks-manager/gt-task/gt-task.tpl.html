@@ -1,33 +1,37 @@
 <div class="box none-border">
 
-    <div class="box">
+    <input type="checkbox" ng-model="task.isComplete" name="isComplete" ng-click="GtTaskCtrl.update()">
+
+    <div class="box task-wrapper">
 
         <button class="btn btn-primary glyphicon glyphicon-plus btn-xs add-task-btn" ng-click="GtTaskCtrl.addTask(task)"></button>
         <button class="btn btn-danger glyphicon glyphicon-minus btn-xs add-task-btn" ng-click="GtTaskCtrl.removeTask(task)"></button>
 
-        <span class="bold">Name:</span>
+        <!--<div class="bold title">Name:</div>-->
         <span>{{task.name}}</span>
 
-        <div>
-            <span class="bold">Is done? </span>
-            <span class="glyphicon" ng-class="{'glyphicon-ok':task.isComplete,'glyphicon-remove':!task.isComplete}"></span>
-        </div>
+        <!--<div>-->
+            <!--<span class="bold">Is done? </span>-->
+            <!--<span class="glyphicon" ng-class="{'glyphicon-ok':task.isComplete,'glyphicon-remove':!task.isComplete}"></span>-->
+        <!--</div>-->
 
-        <div>
-            <span class="bold">ID</span>
-            <span>{{task.id}}</span>
-        </div>
-
-
+        <!--<div>-->
+            <!--<span class="bold">ID</span>-->
+            <!--<span>{{task.id}}</span>-->
+        <!--</div>-->
 
 
-        <div>
-            <span class="bold">Description</span>
-            <div>
-                {{task.description}}
-            </div>
-        </div>
+
+
+        <!--<div>-->
+            <!--<span class="bold title">Description</span>-->
+            <!--<div>-->
+                <!--{{task.description}}-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
+
+    <div class="clear"></div>
 
     <div class="box child none-border"
          ng-repeat="task in task.tasks track by $index"
@@ -35,5 +39,6 @@
          task="task"
          api="api">
     </div>
+
 
 </div>

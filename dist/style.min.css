@@ -12739,7 +12739,6 @@ th.hide-for-touch {
 
 /*# sourceMappingURL=foundation.css.map */
 
-
 body {
   height: 100%;
   width: 100%;
@@ -12843,7 +12842,7 @@ h1.title {
     height: 100%;
     background: #eeeeee;
     float: left; }
-    .main-container .tasks-manage .title {
+    .main-container .tasks-manage header.title {
       background: #464646;
       color: #ffffff;
       padding: 12px;
@@ -12888,7 +12887,7 @@ h1.title{text-align: center}
   .tasks-manage{
     width:80%; height:100%; background: #eeeeee; float:left;
 
-    .title{background: #464646; color:#ffffff;padding: 12px; font-size: 20px;}
+    header.title{background: #464646; color:#ffffff;padding: 12px; font-size: 20px;}
   }
 
 }
@@ -12916,6 +12915,8 @@ h1.title{text-align: center}
 .add-task-modal-wrapper .input-wrapper .input{width:100%; resize: none; border: solid 1px lightgray;}
 .add-task-modal-wrapper .input-wrapper textarea.input{height: 100px;}
 .add-task-modal-wrapper .input-wrapper label{font-weight: normal}
+
+.box .title{color: rgb(0, 140, 186)}
 
 h2.title{border-bottom: 1px solid #DDD9D9;font-size: 23px;text-indent: 13px;padding: 10px;color: gray;/* font-weight: normal; */}
 form{padding:10px;}
