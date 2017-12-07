@@ -1,8 +1,0 @@
-<div ng-controller="TasksController as TasksCtrl">
-
-    <h1>{{TasksCtrl.project.name}}</h1>
-    <button ng-click="TasksCtrl.api.addTask(TasksCtrl.project)"><i class="glyphicon glyphicon-plus"></i> Add new task</button>
-
-    <div gt-tasks-manager tasks="TasksCtrl.project.tasks" api="TasksCtrl.api"></div>
-
-</div>
